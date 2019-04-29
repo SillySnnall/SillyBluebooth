@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.silly.sillybluebooth" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.silly.sillybluebooth">
 
-    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Holo.Light">
-        <activity android:name=".MainActivity" >
+        android:theme="@android:style/Theme.Holo.Light"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity
+            android:name=".DeviceControlActivity"
+            android:screenOrientation="portrait" >
+
+
+        </activity>
+
+        <service
+            android:name=".BluetoothLeService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".NewMainActivity"
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DeviceControlActivity"
-            android:screenOrientation="portrait"/>
-        <service android:name=".BluetoothLeService" android:enabled="true"/>
     </application>
 
 </manifest>

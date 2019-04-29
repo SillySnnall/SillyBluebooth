@@ -67,6 +67,7 @@ public class DeviceControlActivity extends Activity {
             Log.e(TAG, "mBluetoothLeService is okay");
             // Automatically connects to the device upon successful start-up initialization.
             //mBluetoothLeService.connect(mDeviceAddress);
+            mBluetoothLeService.connect("00:15:83:30:78:E4");
         }
 
         @Override
@@ -165,6 +166,8 @@ public class DeviceControlActivity extends Activity {
         Log.d(TAG, "Try to bindService=" + bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE));
 
         registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
+
+
     }
 
     @Override
@@ -214,7 +217,8 @@ public class DeviceControlActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {                              //点击按钮
         switch(item.getItemId()) {
             case R.id.menu_connect:
-                mBluetoothLeService.connect(mDeviceAddress);
+//                mBluetoothLeService.connect(mDeviceAddress);
+                mBluetoothLeService.connect("00:15:83:30:78:E4");
                 return true;
             case R.id.menu_disconnect:
                 mBluetoothLeService.disconnect();
